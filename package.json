@@ -1,0 +1,70 @@
+{
+  "name": "monitoragentserver",
+  "version": "1.0.0",
+  "description": "serves socket connection",
+  "main": "client/index.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "devserve": "NODE_ENV=development && GCLOUD_PROJECT=media-manager && nodemon server/server.js",
+    "devpack": "NODE_ENV=development && GCLOUD_PROJECT=media-manager && webpack -w --config webpack.config.js --progress",
+    "devservewin": "set NODE_ENV=development && set GCLOUD_PROJECT=media-manager && nodemon server/server.js",
+    "devpackwin": "set NODE_ENV=development && set GCLOUD_PROJECT=media-manager && webpack -w --config webpack.config.js --progress",
+    "deploywin": "set NODE_ENV=production && webpack --config webpack.config.js && gcloud app deploy app.yaml",
+    "deploy": "NODE_ENV=production && webpack --config webpack.config.js && gcloud app deploy app.yaml"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jdubz/MonitorAgentServer.git"
+  },
+  "author": "Josh Wentworth",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jdubz/MonitorAgentServer/issues"
+  },
+  "homepage": "https://github.com/Jdubz/MonitorAgentServer#readme",
+  "dependencies": {
+    "@google/cloud-debug": "^0.9.0",
+    "@google/cloud-trace": "^0.5.10",
+    "auth0-lock": "^10.6.1",
+    "axios": "^0.15.2",
+    "babel-cli": "^6.7.7",
+    "babel-loader": "^6.2.4",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-polyfill": "^6.8.0",
+    "babel-preset-react": "^6.5.0",
+    "bcryptjs": "^2.3.0",
+    "body-parser": "^1.15.2",
+    "css-loader": "^0.25.0",
+    "dotenv": "^2.0.0",
+    "express": "^4.14.0",
+    "express-session": "^1.14.2",
+    "express-winston": "^2.0.0",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "lodash": "^4.17.2",
+    "mysql": "^2.12.0",
+    "node-sass": "^3.12.2",
+    "normalize.css": "^5.0.0",
+    "react": "^15.1.0",
+    "react-addons-css-transition-group": "^15.1.0",
+    "react-dom": "^15.1.0",
+    "react-router": "^3.0.0",
+    "sass-loader": "^4.0.2",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.13.0",
+    "winston": "^2.3.0"
+  },
+  "devDependencies": {
+    "eslint": "^3.10.1",
+    "eslint-config-airbnb": "^13.0.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^2.2.3",
+    "eslint-plugin-react": "^6.7.1",
+    "babel-preset-es2015": "^6.6.0",
+    "babel-preset-stage-2": "^6.5.0",
+    "nodemon": "^1.9.1",
+    "npm": "^3.8.8"
+  },
+  "engines": {
+    "node": "6.9.1"
+  }
+}

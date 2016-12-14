@@ -1,0 +1,10 @@
+runtime: nodejs
+vm: true
+api_version: 1
+
+skip_files:
+ - ^node_modules$
+
+env_variables:
+  NODE_ENV: production
+  GCLOUD_PROJECT: media-manager
