@@ -1,7 +1,8 @@
 import React from 'react';
 import Auth0Lock from 'auth0-lock';
-import { getUser } from '../utils/requests.js';
+import { getUser, getUserInfo } from '../utils/requests.js';
 import Header from './Header.jsx';
+import UserPage from './UserPage.jsx';
 
 const clientId = 'YUID0MQgktl0NyWXD1UFwbD0GBS4PYQe';
 const domain = 'joshwentworth.auth0.com';
@@ -47,6 +48,7 @@ class App extends React.Component {
             console.log(user.data);
             profile.org_id = user.data.org_id;
             profile.super = user.data.super;
+            profile.id = user.data.id;
             this.setState({
               loggedIn: true,
               validUser: true,
@@ -85,6 +87,15 @@ class App extends React.Component {
       user,
     });
   }
+  renderUserPage() {
+    if (this.state.user) {
+      return (<UserPage 
+        getUserInfo={getUserInfo}
+        user={this.state.user}
+      />);
+    }
+    return null;
+  }
 
   render() {
     const { user, loggedIn } = this.state;
@@ -97,6 +108,7 @@ class App extends React.Component {
           login={this.login}
           logout={this.logout}
         />
+        {this.renderUserPage()}
         <h2>Manage the Media</h2>
       </div>
     );
