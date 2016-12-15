@@ -1,7 +1,7 @@
 {
-  "name": "monitoragentserver",
+  "name": "media-manager",
   "version": "1.0.0",
-  "description": "serves socket connection",
+  "description": "manages files in amazon drive",
   "main": "client/index.js",
   "scripts": {
     "start": "node server/server.js",
@@ -14,14 +14,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Jdubz/MonitorAgentServer.git"
+    "url": "git+https://github.com/Mainstage/media-manager.git"
   },
   "author": "Josh Wentworth",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Jdubz/MonitorAgentServer/issues"
+    "url": "https://github.com/Mainstage/media-manager/issues"
   },
-  "homepage": "https://github.com/Jdubz/MonitorAgentServer#readme",
+  "homepage": "https://github.com/Mainstage/media-manager#readme",
   "dependencies": {
     "@google/cloud-debug": "^0.9.0",
     "@google/cloud-trace": "^0.5.10",
