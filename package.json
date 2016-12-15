@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/Mainstage/media-manager#readme",
   "dependencies": {
+    "@google-cloud/storage": "^0.6.0",
     "@google/cloud-debug": "^0.9.0",
     "@google/cloud-trace": "^0.5.10",
     "auth0-lock": "^10.6.1",
@@ -48,6 +49,7 @@
     "react-addons-css-transition-group": "^15.1.0",
     "react-dom": "^15.1.0",
     "react-router": "^3.0.0",
+    "request": "^2.79.0",
     "sass-loader": "^4.0.2",
     "style-loader": "^0.13.1",
     "webpack": "^1.13.0",
