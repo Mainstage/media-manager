@@ -1,19 +1,35 @@
 import React from 'react';
 
 const Header = ({ user, login, logout, loggedIn }) => {
-  let btn;
+  let loginClick;
+  let loginText;
   if (loggedIn) {
-    btn = (<button
-      onClick={logout}
-      >Log Out</button>);
+    loginClick = logout;
+    loginText = 'Log Out';
   } else {
-    btn = (<button
-      onClick={login}
-      >Log In</button>);
+    loginClick = login;
+    loginText = 'Log In';
   }
-  return (<div className="header">
-    {btn}
-  </div>);
+  return (
+    <div className="header">
+      <button
+        onClick={loginClick}
+        className="logButton"
+      >
+        {loginText}
+      </button>
+      <button
+        onClick={() => { console.log('CLICK at notifyButton') }}
+        className="notifyButton"
+      >
+        Notifications
+      </button>
+      <div className="headerUserName">Hello, username</div>
+      <div className="headerUserImg">user image here</div>
+      <div className="headerLogo">logo here</div>
+    </div>
+  );
 };
 
 export default Header;
+

@@ -10,7 +10,7 @@ const dbCallback = (action, callback) =>
       callback(null, res);
     }
   };
-
+  
 module.exports = {
   insert: (table, data, cb) => {
     const query = 'INSERT INTO ?? SET ?';
@@ -36,7 +36,7 @@ module.exports = {
   },
   query: (...args) => {
     const firstNArgs = args.slice(0, args.length - 1);
-    const cb = args.slice(args.length - 1);
+    const cb = args.slice(args.length - 1)[0];
     db.query(...firstNArgs, dbCallback('custom query', cb));
   },
 };
