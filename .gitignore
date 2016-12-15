@@ -2,6 +2,5 @@ node_modules/
 
 client/dist/
 .env
-
 npm-debug.log
-config/keys/
+*/config/keys/
