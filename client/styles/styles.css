@@ -153,3 +153,24 @@ input, textarea, keygen, select, button {
   Specific Component Styling
   ========================================
 */
+
+.filedrop {
+  width: 12em;
+  height: auto;
+  border: 1px;
+  border-style: solid;
+  border-color: #000;
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+}
+
+.filedrop img {
+  width: 95%;
+}
+
+.filedrop p {
+  font-size: 115%;
+  text-align: center;
+  margin: 0.5em;
+}
