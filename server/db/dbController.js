@@ -1,36 +1,21 @@
 const db = require('./dbModel.js');
 
 module.exports = {
-  getUserAuth: (req, res) => {
-    const albumQuery = 'SELECT a.name, a.folder, a.user_id, a.id FROM USERS_ALBUMS ua INNER JOIN ALBUMS a on a.id=ua.album_id WHERE ua.user_id = ?';
-    const groupQuery = 'SELECT g.name, g.id FROM USERS_GROUPS ug INNER JOIN GROUPS g on g.id=ug.group_id WHERE ug.user_id = ?';
-    db.getSome('USERS', '*', { client_auth_id: req.query.userId }, (uErr, user) => {
-      db.query(albumQuery, [user[0].id], (aErr, albums) => {
-        db.query(groupQuery, [user[0].id], (gErr, groups) => {
-          const result = {
-            user: user[0].id,
-            albums,
-            groups,
-          };
-          res.send(uErr || aErr || gErr || result || 'user not registered');
-        });
+  getUserInfo: (req, res) => {
+    const albumQuery = 'SELECT a.name, a.id FROM USERS_ALBUMS ua INNER JOIN ALBUMS a ON a.id=ua.album_id WHERE ua.user_id = ?';
+    const groupQuery = 'SELECT g.name, g.id FROM USERS_GROUPS ug INNER JOIN GROUPS g ON g.id=ug.group_id WHERE ug.user_id = ?';
+    db.query(albumQuery, req.query.userId, (aErr, albums) => {
+      db.query(groupQuery, req.query.userId, (gErr, groups) => {
+        const result = {
+          albums,
+          groups,
+        };
+        res.send(aErr || gErr || result || null);
       });
-      // db.getSome('ALBUMS', '*', { creator_id: user.id }, (err, albums) => {
-      //   db.getSome('USER_GROUPS', 'group_id', { user_id: user.id }, (err, groupIds) => {
-      //     db.getSome('GROUPS', '*', { group_id: groupIds.id }, (err, groups) => {
-      //       const result = {
-      //         user: user[0],
-      //         albums,
-      //         groups,
-      //       };
-      //       res.send(err || user[0] || 'user not registered');
-      //     });
-      //   });
-      // });
     });
   },
-  getUserByName: (req, res) => {
-    db.getSome('USERS', '*', { name: req.query.name }, (err, users) => {
+  getUser: (req, res) => {
+    db.getSome('USERS', '*', req.query, (err, users) => {
       res.send(err || users[0] || 'user not registered');
     });
   },

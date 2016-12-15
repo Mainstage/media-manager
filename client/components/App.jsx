@@ -1,6 +1,6 @@
 import React from 'react';
 import Auth0Lock from 'auth0-lock';
-import { login } from '../utils/requests';
+import { getUser } from '../utils/requests.js';
 import Header from './Header.jsx';
 
 const clientId = 'YUID0MQgktl0NyWXD1UFwbD0GBS4PYQe';
@@ -35,7 +35,7 @@ class App extends React.Component {
         console.log('error getting profile', err);
       } else {
         console.log(profile);
-        login(profile.user_id).then((user) => {
+        getUser({ userId: profile.user_id }).then((user) => {
           if (!user.data) {
             this.setState({
               loggedIn: true,

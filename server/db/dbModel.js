@@ -37,6 +37,6 @@ module.exports = {
   query: (...args) => {
     const firstNArgs = args.slice(0, args.length - 1);
     const cb = args.slice(args.length - 1);
-    db.query(firstNArgs, dbCallback('custom query', cb));
+    db.query(...firstNArgs, dbCallback('custom query', cb));
   },
 };

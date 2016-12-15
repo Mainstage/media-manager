@@ -1,8 +1,8 @@
 import axios from 'axios';
 
-const login = clientId =>
-  axios.post('/login', clientId);
+const getUser = params =>
+  axios.get('/users', { params });
 
 module.exports = {
-  login,
+  getUser,
 };
