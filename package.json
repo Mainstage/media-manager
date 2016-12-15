@@ -5,7 +5,7 @@
   "main": "client/index.js",
   "scripts": {
     "start": "node server/server.js",
-    "devserve": "NODE_ENV=development && GCLOUD_PROJECT=media-manager && nodemon server/server.js",
+    "devserve": "nodemon server/server.js",
     "devpack": "NODE_ENV=development && GCLOUD_PROJECT=media-manager && webpack -w --config webpack.config.js --progress",
     "devservewin": "set NODE_ENV=development && set GCLOUD_PROJECT=media-manager && nodemon server/server.js",
     "devpackwin": "set NODE_ENV=development && set GCLOUD_PROJECT=media-manager && webpack -w --config webpack.config.js --progress",
