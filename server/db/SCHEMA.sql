@@ -6,18 +6,16 @@ USE media_manager;
 
 CREATE TABLE USERS (
   id int NOT NULL AUTO_INCREMENT primary key,
-  name varchar(30),
+  name varchar(30) not null,
   email varchar(40) not null,
-  client_auth_id varchar(40),
+  userId varchar(40) not null,
   UNIQUE (email)
 );
 
 CREATE TABLE ALBUMS (
   id int NOT NULL AUTO_INCREMENT primary key,
   name varchar(40),
-  folder varchar(40),
-  password varchar(40),
-  iconCover varchar(40),
+  iconCover text,
   user_id int,
   FOREIGN KEY (user_id) REFERENCES USERS(id) ON DELETE CASCADE
 );
@@ -36,13 +34,14 @@ CREATE TABLE GROUPS (
   name varchar(40) not null
 );
 
-CREATE TABLE USER_GROUPS (
+CREATE TABLE USERS_GROUPS (
   id int NOT NULL AUTO_INCREMENT primary key,
   user_id int not null,
   group_id int not null,
   FOREIGN KEY (user_id) REFERENCES USERS(id) ON DELETE CASCADE,
   FOREIGN KEY (group_id) REFERENCES GROUPS(id) ON DELETE CASCADE
 );
+
 CREATE TABLE USERS_ALBUMS (
   id int NOT NULL AUTO_INCREMENT primary key,
   user_id int not null,

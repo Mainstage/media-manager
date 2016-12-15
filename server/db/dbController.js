@@ -16,13 +16,13 @@ module.exports = {
   },
   getUser: (req, res) => {
     db.getSome('USERS', '*', req.query, (err, users) => {
-      res.send(err || users[0] || 'user not registered');
+      res.send(err || users[0]);
     });
   },
   getGroup: (req, res) => {
     db.getSome('GROUPS', '*', { name: req.query.groupName },
       (err, groups) => {
-        res.send(err || groups[0] || 'not a group name');
+        res.send(err || groups[0]);
       });
   },
   newUser: (req, res) => {

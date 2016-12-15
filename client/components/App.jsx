@@ -36,6 +36,7 @@ class App extends React.Component {
       } else {
         console.log(profile);
         getUser({ userId: profile.user_id }).then((user) => {
+          console.log(user)
           if (!user.data) {
             this.setState({
               loggedIn: true,
@@ -43,6 +44,7 @@ class App extends React.Component {
               user: profile,
             });
           } else if (user.data) {
+            console.log(user.data);
             profile.org_id = user.data.org_id;
             profile.super = user.data.super;
             this.setState({
