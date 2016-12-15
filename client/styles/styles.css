@@ -140,6 +140,20 @@ input, textarea, keygen, select, button {
   width: 80%;
 }
 
+.profileAlbums {
+  display: table;
+  width: 100%; /*Optional*/
+  table-layout: fixed; /*Optional*/
+  border-spacing: 10px; /*Optional*/
+  overflow: scroll;
+}
+.albumTile {
+    display: inline-block;
+    background-color: rgba(0,0,0,0); /*Optional*/
+    height: 20em;
+    margin: .5em;
+}
+
 .container {
   position: relative;
   padding: 1em;
@@ -147,6 +161,15 @@ input, textarea, keygen, select, button {
   position: relative;
   box-sizing: border-box;
 }
+.profileSection {
+  position: absolute;
+  padding: 1em;
+  height: 50%;
+  width: 100%;
+  background-color: rgba(0,0,0,0.5);
+  box-sizing: border-box;
+}
+
 
 /*
   ========================================

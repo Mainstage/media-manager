@@ -2,7 +2,7 @@ const db = require('./dbModel.js');
 
 module.exports = {
   getUserInfo: (req, res) => {
-    const albumQuery = 'SELECT a.name, a.id FROM USERS_ALBUMS ua INNER JOIN ALBUMS a ON a.id=ua.album_id WHERE ua.user_id = ?';
+    const albumQuery = 'SELECT a.name, a.id, a.iconCover FROM USERS_ALBUMS ua INNER JOIN ALBUMS a ON a.id=ua.album_id WHERE ua.user_id = ?';
     const groupQuery = 'SELECT g.name, g.id FROM USERS_GROUPS ug INNER JOIN GROUPS g ON g.id=ug.group_id WHERE ug.user_id = ?';
     db.query(albumQuery, req.query.userId, (aErr, albums) => {
       db.query(groupQuery, req.query.userId, (gErr, groups) => {
