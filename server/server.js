@@ -3,34 +3,26 @@ if (process.env.NODE_ENV === 'production') {
   require('@google/cloud-debug').start();
 }
 
+const dotenv = require('dotenv');
 const express = require('express');
 const bodyParser = require('body-parser');
 const logging = require('./config/logging.js');
+const routes = require('./config/routes.js');
+
+if (process.env.NODE_ENV !== 'production') {
+  dotenv.config();
+}
 
 const app = express();
 if (process.env.NODE_ENV !== 'production') {
   app.use(logging.requestLogger);
 }
-
-const dotenv = require('dotenv');
-dotenv.config();
-
 app.use(express.static(`${__dirname}/../client`));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-
-require('./config/routes.js')(app);
-
 app.use(logging.errorLogger);
+routes(app);
 
-app.use((req, res) => {
-  res.status(404).send('Not Found');
-});
-
-// Basic error handler
-app.use((err, req, res, next) => {
-  res.status(500).send(err.response || 'Something broke!');
-});
 
 if (process.env.GCLOUD_PROJECT) {
   logging.info(`using project ${process.env.GCLOUD_PROJECT}`);
