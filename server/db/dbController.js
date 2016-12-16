@@ -19,6 +19,12 @@ module.exports = {
       res.send(err || users[0]);
     });
   },
+  getMedia: (req, res) => {
+    db.getSome('MEDIA', '*', req.query, (err, media) => {
+      console.log('media', media)
+      res.send(err || media);
+    });
+  },
   getGroup: (req, res) => {
     db.getSome('GROUPS', '*', { name: req.query.groupName },
       (err, groups) => {
