@@ -89,15 +89,18 @@ class App extends React.Component {
 
   updateUser(albums, groups) {
     const user = this.state.user;
-    user.albums = albums;
-    user.groups = groups;
+    if (albums) {
+      user.albums = albums;
+    }
+    if (groups) {
+      user.groups = groups;
+    }
     this.setState({ user });
   }
 
   renderUserPage() {
     if (this.state.user) {
       return (<UserPage
-        getUserInfo={getUserInfo}
         user={this.state.user}
         updateUser={this.updateUser}
       />);
