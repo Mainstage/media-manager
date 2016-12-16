@@ -50,5 +50,4 @@ class UserPage extends React.Component {
   }
 }
 
-
 export default UserPage;

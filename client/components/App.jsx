@@ -86,6 +86,15 @@ class App extends React.Component {
       user,
     });
   }
+  renderUserPage() {
+    if (this.state.user) {
+      return (<UserPage 
+        getUserInfo={getUserInfo}
+        user={this.state.user}
+      />);
+    }
+    return null;
+  }
 
   updateUser(albums, groups) {
     const user = this.state.user;
@@ -120,6 +129,7 @@ class App extends React.Component {
           logout={this.logout}
         />
         {this.renderUserPage()}
+        <h2>Manage the Media</h2>
       </div>
     );
   }
