@@ -3,6 +3,9 @@ import axios from 'axios';
 const getUser = params =>
   axios.get('/users', { params });
 
+const getMedia = params =>
+  axios.get('/media', { params });
+
 const getUserInfo = params =>
   axios.get('/userInfo', { params });
 
@@ -13,4 +16,5 @@ module.exports = {
   getUser,
   getUserInfo,
   uploadFile,
+  getMedia,
 };

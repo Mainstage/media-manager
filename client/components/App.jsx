@@ -21,6 +21,8 @@ class App extends React.Component {
     this.login = this.login.bind(this);
     this.logout = this.logout.bind(this);
     this.confirmNewUser = this.confirmNewUser.bind(this);
+    this.updateUser = this.updateUser.bind(this);
+
   }
 
   componentDidMount() {
@@ -94,10 +96,31 @@ class App extends React.Component {
     return null;
   }
 
+  updateUser(albums, groups) {
+    const user = this.state.user;
+    if (albums) {
+      user.albums = albums;
+    }
+    if (groups) {
+      user.groups = groups;
+    }
+    this.setState({ user });
+  }
+
+  renderUserPage() {
+    if (this.state.user) {
+      return (<UserPage
+        user={this.state.user}
+        updateUser={this.updateUser}
+      />);
+    }
+    return null;
+  }
+
   render() {
     const { user, loggedIn } = this.state;
     return (
-      <div >
+      <div className="container, BG">
         <div className="BG" />
         <Header
           user={user}

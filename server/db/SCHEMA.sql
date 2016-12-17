@@ -25,6 +25,7 @@ CREATE TABLE MEDIA (
   media_type varchar(40),
   user_id int,
   album_id int,
+  media_ref text,
   FOREIGN KEY (user_id) REFERENCES USERS(id) ON DELETE CASCADE,
   FOREIGN KEY (album_id) REFERENCES ALBUMS(id) ON DELETE CASCADE
 );

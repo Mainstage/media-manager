@@ -139,6 +139,28 @@ input, textarea, keygen, select, button {
   display: block;
   width: 80%;
 }
+.carousel {
+  display: inline-block;
+  width: 100%;
+}
+.profileAlbums {
+  display: inline-block;
+  width: 100%; /*Optional*/
+  overflow: scroll;
+}
+.profileAlbumPic {
+  object-fit: contain;
+  max-height: 100%;
+  width: 100%;
+}
+
+.albumTile {
+  display: inline-block;
+  background-color: rgba(0,0,0,0); /*Optional*/
+  height: 6em;
+  width: 6em;
+  margin: .5em;
+}
 
 .container {
   position: relative;
@@ -147,6 +169,15 @@ input, textarea, keygen, select, button {
   position: relative;
   box-sizing: border-box;
 }
+.profileSection {
+  position: absolute;
+  padding: 1em;
+  height: 50%;
+  width: 100%;
+  background-color: rgba(0,0,0,0.5);
+  box-sizing: border-box;
+}
+
 
 /*
   ========================================
